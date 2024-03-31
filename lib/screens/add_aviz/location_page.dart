@@ -1,16 +1,9 @@
-import 'dart:math';
-
 import 'package:aviz/widgets/switch_box.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:latlng/latlng.dart';
-import 'package:map/map.dart';
+import 'package:flutter_map/flutter_map.dart';
+import 'package:latlong2/latlong.dart';
 
 import '../../data/constants/colors.dart';
-import '../../utils/map/tile_servers.dart';
-import '../../utils/map/utils.dart';
-import '../../utils/map/viewport_painter.dart';
 
 class LocationPage extends StatefulWidget {
   final void Function() onFinish;
@@ -27,77 +20,17 @@ class LocationPage extends StatefulWidget {
 class _LocationPageState extends State<LocationPage> {
   bool showExactLocationSwitch = true;
 
-  final controller = MapController(
-    location: const LatLng(Angle.degree(35.68), Angle.degree(51.41)),
-    zoom: 6,
-  );
-
-  void _gotoDefault() {
-    controller.center = const LatLng(Angle.degree(35.68), Angle.degree(51.41));
-    controller.zoom = 14;
-    setState(() {});
-  }
-
-  void _onDoubleTap(MapTransformer transformer, Offset position) {
-    const delta = 0.5;
-    final zoom = clamp(controller.zoom + delta, 2, 18);
-
-    transformer.setZoomInPlace(zoom, position);
-    setState(() {});
-  }
-
-  Offset? _dragStart;
-  double _scaleStart = 1.0;
-  void _onScaleStart(ScaleStartDetails details) {
-    _dragStart = details.focalPoint;
-    _scaleStart = 1.0;
-  }
-
-  void _onScaleUpdate(ScaleUpdateDetails details, MapTransformer transformer) {
-    final scaleDiff = details.scale - _scaleStart;
-    _scaleStart = details.scale;
-
-    if (scaleDiff > 0) {
-      controller.zoom += 0.02;
-
-      setState(() {});
-    } else if (scaleDiff < 0) {
-      controller.zoom -= 0.02;
-      if (controller.zoom < 1) {
-        controller.zoom = 1;
-      }
-      setState(() {});
-    } else {
-      final now = details.focalPoint;
-      var diff = now - _dragStart!;
-      _dragStart = now;
-      final h = transformer.constraints.maxHeight;
-
-      final vp = transformer.getViewport();
-      if (diff.dy < 0 && vp.bottom - diff.dy < h) {
-        diff = Offset(diff.dx, 0);
-      }
-
-      if (diff.dy > 0 && vp.top - diff.dy > 0) {
-        diff = Offset(diff.dx, 0);
-      }
-
-      transformer.drag(diff.dx, diff.dy);
-      setState(() {});
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: Padding(
-        padding: EdgeInsets.only(bottom: 100),
-        child: FloatingActionButton(
-          onPressed: _gotoDefault,
-          tooltip: 'My Location',
-          child: const Icon(Icons.my_location),
-        ),
-      ),
+      // floatingActionButton: Padding(
+      //   padding: EdgeInsets.only(bottom: 100),
+      //   child: FloatingActionButton(
+      //     onPressed: _gotoDefault,
+      //     tooltip: 'My Location',
+      //     child: const Icon(Icons.my_location),
+      //   ),
+      // ),
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
@@ -139,63 +72,18 @@ class _LocationPageState extends State<LocationPage> {
                     SizedBox(height: 32),
                     Container(
                       height: 144,
-                      child: MapLayout(
-                        controller: controller,
-                        builder: (context, transformer) {
-                          return GestureDetector(
-                            behavior: HitTestBehavior.opaque,
-                            onDoubleTapDown: (details) => _onDoubleTap(
-                              transformer,
-                              details.localPosition,
-                            ),
-                            onScaleStart: _onScaleStart,
-                            onScaleUpdate: (details) =>
-                                _onScaleUpdate(details, transformer),
-                            child: Listener(
-                              behavior: HitTestBehavior.opaque,
-                              onPointerSignal: (event) {
-                                if (event is PointerScrollEvent) {
-                                  final delta = event.scrollDelta.dy / -1000.0;
-                                  final zoom =
-                                      clamp(controller.zoom + delta, 2, 18);
-
-                                  transformer.setZoomInPlace(
-                                      zoom, event.localPosition);
-                                  setState(() {});
-                                }
-                              },
-                              child: Stack(
-                                children: [
-                                  TileLayer(
-                                    builder: (context, x, y, z) {
-                                      final tilesInZoom = pow(2.0, z).floor();
-
-                                      while (x < 0) {
-                                        x += tilesInZoom;
-                                      }
-                                      while (y < 0) {
-                                        y += tilesInZoom;
-                                      }
-
-                                      x %= tilesInZoom;
-                                      y %= tilesInZoom;
-
-                                      return CachedNetworkImage(
-                                        imageUrl: google(z, x, y),
-                                        fit: BoxFit.cover,
-                                      );
-                                    },
-                                  ),
-                                  CustomPaint(
-                                    painter: ViewportPainter(
-                                      transformer.getViewport(),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          );
-                        },
+                      child: FlutterMap(
+                        options: MapOptions(
+                          initialCenter: LatLng(36.821074, 54.435764), //Gorgan
+                          initialZoom: 9.2,
+                        ),
+                        children: [
+                          TileLayer(
+                            urlTemplate:
+                                'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                            userAgentPackageName: 'com.example.aviz',
+                          ),
+                        ],
                       ),
                     ),
                     SizedBox(height: 32),

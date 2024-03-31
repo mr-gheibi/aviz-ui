@@ -9,6 +9,8 @@ class Aviz {
   String floors;
   int buildYear;
   String location;
+  double lat;
+  double long;
   String sanad;
   String direction;
   List<String> features;
@@ -26,6 +28,8 @@ class Aviz {
     required this.floors,
     required this.buildYear,
     required this.location,
+    required this.lat,
+    required this.long,
     required this.sanad,
     required this.direction,
     required this.features,

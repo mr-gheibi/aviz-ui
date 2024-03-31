@@ -12,6 +12,8 @@ var all_avizes_list = [
     floors: 'دوبلکس',
     buildYear: 1402,
     location: 'گرگان، صیاد شیرازی',
+    lat: 36.821074,
+    long: 54.435764,
     sanad: 'تک برگ',
     direction: 'شمالی',
     features: [
@@ -38,6 +40,8 @@ var all_avizes_list = [
     floors: 'دوبلکس',
     buildYear: 1398,
     location: 'تبریز، نصف راه',
+    lat: 38.073789,
+    long: 46.252230,
     sanad: 'تک برگ',
     direction: 'شرقی',
     features: [
