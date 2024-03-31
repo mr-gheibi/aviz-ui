@@ -1,25 +1,21 @@
 import 'package:aviz/data/constants/colors.dart';
-import 'package:aviz/screens/add_aviz/add_aviz_second_form_screen.dart';
 import 'package:flutter/material.dart';
 
-class AddAvizScreen extends StatefulWidget {
-  const AddAvizScreen({super.key});
+class CategoryPage extends StatefulWidget {
+  final String type;
+  final void Function(String) onFinish;
+
+  const CategoryPage({
+    super.key,
+    required this.type,
+    required this.onFinish,
+  });
 
   @override
-  State<AddAvizScreen> createState() => _AddAvizScreenState();
+  State<CategoryPage> createState() => _CategoryPageState();
 }
 
-class _AddAvizScreenState extends State<AddAvizScreen> {
-  int step = 1;
-
-  @override
-  void initState() {
-    super.initState();
-    setState(() {
-      step = 1;
-    });
-  }
-
+class _CategoryPageState extends State<CategoryPage> {
   var categories = [
     'اجاره مسکونی',
     'فروش مسکونی',
@@ -28,6 +24,7 @@ class _AddAvizScreenState extends State<AddAvizScreen> {
     'اجاره کوتاه مدت',
     'پروژه های ساخت و ساز',
   ];
+
   var subCategories = [
     'فروش آپارتمان',
     'فروش خانه و ویلا',
@@ -38,20 +35,8 @@ class _AddAvizScreenState extends State<AddAvizScreen> {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        SliverToBoxAdapter(
-          child: Column(
-            children: [
-              Divider(
-                color: primaryColor,
-                thickness: 4,
-                indent: 350 - ((step - 1) * 50),
-              ),
-              SizedBox(height: 32),
-            ],
-          ),
-        ),
         SliverPadding(
-          padding: EdgeInsets.symmetric(horizontal: 16),
+          padding: EdgeInsets.symmetric(vertical: 32, horizontal: 16),
           sliver: _getCategoriesListSliver(),
         ),
       ],
@@ -66,17 +51,7 @@ class _AddAvizScreenState extends State<AddAvizScreen> {
             margin: EdgeInsets.only(bottom: 16),
             child: InkWell(
               onTap: () {
-                if (step == 1)
-                  setState(() {
-                    step = 2;
-                  });
-                else if (step == 2) {
-                  setState(() {
-                    step = 3;
-                  });
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => AddAvizFormScreen()));
-                }
+                widget.onFinish(_getListItems()[index]);
               },
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -112,10 +87,12 @@ class _AddAvizScreenState extends State<AddAvizScreen> {
   }
 
   List _getListItems() {
-    if (step == 1) {
+    if (widget.type == 'cat') {
       return categories;
-    } else {
+    } else if (widget.type == 'subcat') {
       return subCategories;
+    } else {
+      return [];
     }
   }
 }

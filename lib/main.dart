@@ -1,5 +1,6 @@
 import 'package:aviz/data/constants/colors.dart';
 import 'package:aviz/screens/auth_screen.dart';
+import 'package:aviz/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -91,7 +92,9 @@ class MainScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               textDirection: TextDirection.rtl,
               children: [
-                ElevatedButton(
+                PrimaryButton(
+                  text: 'ثبت نام',
+                  fixedSize: MaterialStateProperty.all(Size(159, 40)),
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
@@ -99,24 +102,6 @@ class MainScreen extends StatelessWidget {
                       ),
                     );
                   },
-                  child: Text(
-                    'ثبت نام',
-                    style: TextStyle(
-                      fontFamily: 'Shabnam',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 16,
-                    ),
-                  ),
-                  style: ButtonStyle(
-                    fixedSize: MaterialStateProperty.all(Size(159, 40)),
-                    elevation: MaterialStateProperty.all(0),
-                    backgroundColor: MaterialStateProperty.all(primaryColor),
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(4),
-                      ),
-                    ),
-                  ),
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -129,10 +114,11 @@ class MainScreen extends StatelessWidget {
                   child: Text(
                     'ورود',
                     style: TextStyle(
-                        fontFamily: 'Shabnam',
-                        fontWeight: FontWeight.w500,
-                        fontSize: 16,
-                        color: primaryColor),
+                      fontFamily: 'Shabnam',
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
+                      color: primaryColor,
+                    ),
                   ),
                   style: ButtonStyle(
                     fixedSize: MaterialStateProperty.all(Size(159, 40)),

@@ -1,14 +1,26 @@
 import 'package:aviz/data/constants/colors.dart';
 import 'package:aviz/screens/home_screen.dart';
+import 'package:aviz/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:timer_count_down/timer_controller.dart';
+import 'package:timer_count_down/timer_count_down.dart';
 
 // ignore: must_be_immutable
-class OTPScreen extends StatelessWidget {
+class OTPScreen extends StatefulWidget {
   String type = '';
   OTPScreen({super.key, required String type}) {
     this.type = type;
   }
+
+  @override
+  State<OTPScreen> createState() => _OTPScreenState();
+}
+
+class _OTPScreenState extends State<OTPScreen> {
+  final CountdownController _countdownController =
+      new CountdownController(autoStart: true);
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +28,9 @@ class OTPScreen extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16),
-          child:
-              type == 'register' ? _getRegisterOTPScreen(context) : _getLoginOTPScreen(context),
+          child: widget.type == 'register'
+              ? _getRegisterOTPScreen(context)
+              : _getLoginOTPScreen(context),
         ),
       ),
     );
@@ -86,29 +99,56 @@ class OTPScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           textDirection: TextDirection.rtl,
           children: [
-            Text(
-              '00:45',
-              style: TextStyle(
-                fontFamily: 'Shabnam',
-                fontWeight: FontWeight.w500,
-                fontSize: 18,
-                color: grey700Color,
-              ),
+            Countdown(
+              controller: _countdownController,
+              seconds: 120,
+              build: (BuildContext context, double time) {
+                int mins = (time / 60).floor();
+                int seconds = (time - (60 * (time / 60).floor())).toInt();
+                return Text(
+                  '$mins:$seconds',
+                  style: TextStyle(
+                    fontFamily: 'Shabnam',
+                    fontWeight: FontWeight.w500,
+                    fontSize: 18,
+                    color: grey700Color,
+                  ),
+                );
+              },
             ),
             SizedBox(width: 4),
-            Text(
-              'ارسال مجدد کد',
-              style: TextStyle(
-                fontFamily: 'Shabnam',
-                fontWeight: FontWeight.w500,
-                fontSize: 14,
-                color: grey400Color,
+            TextButton(
+              onPressed: () {
+                if (_countdownController.isCompleted!) {
+                  _countdownController.restart();
+                } else {
+                  Fluttertoast.showToast(
+                    msg: "لطفا تا انقضای کد ارسال شده قبلی صبر کنید.",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.CENTER,
+                    timeInSecForIosWeb: 1,
+                    backgroundColor: primaryColor,
+                    textColor: Colors.white,
+                    fontSize: 16.0,
+                  );
+                }
+              },
+              child: Text(
+                'ارسال مجدد کد',
+                style: TextStyle(
+                  fontFamily: 'Shabnam',
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14,
+                  color: grey400Color,
+                ),
               ),
             ),
           ],
         ),
         Spacer(),
-        ElevatedButton(
+        PrimaryButton(
+          text: 'تایید ورود',
+          fixedSize: MaterialStateProperty.all(Size(343, 40)),
           onPressed: () {
             Navigator.of(context).pop();
             Navigator.of(context).pop();
@@ -118,24 +158,6 @@ class OTPScreen extends StatelessWidget {
               ),
             );
           },
-          child: Text(
-            'تایید ورود',
-            style: TextStyle(
-              fontFamily: 'Shabnam',
-              fontWeight: FontWeight.w500,
-              fontSize: 16,
-            ),
-          ),
-          style: ButtonStyle(
-            fixedSize: MaterialStateProperty.all(Size(343, 40)),
-            elevation: MaterialStateProperty.all(0),
-            backgroundColor: MaterialStateProperty.all(primaryColor),
-            shape: MaterialStateProperty.all(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(4),
-              ),
-            ),
-          ),
         ),
         SizedBox(height: 32),
       ],
@@ -205,29 +227,56 @@ class OTPScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           textDirection: TextDirection.rtl,
           children: [
-            Text(
-              '00:45',
-              style: TextStyle(
-                fontFamily: 'Shabnam',
-                fontWeight: FontWeight.w500,
-                fontSize: 18,
-                color: grey400Color,
-              ),
+            Countdown(
+              controller: _countdownController,
+              seconds: 120,
+              build: (BuildContext context, double time) {
+                int mins = (time / 60).floor();
+                int seconds = (time - (60 * (time / 60).floor())).toInt();
+                return Text(
+                  '$mins:$seconds',
+                  style: TextStyle(
+                    fontFamily: 'Shabnam',
+                    fontWeight: FontWeight.w500,
+                    fontSize: 18,
+                    color: grey400Color,
+                  ),
+                );
+              },
             ),
             SizedBox(width: 4),
-            Text(
-              'ارسال مجدد کد',
-              style: TextStyle(
-                fontFamily: 'Shabnam',
-                fontWeight: FontWeight.w500,
-                fontSize: 14,
-                color: grey700Color,
+            TextButton(
+              onPressed: () {
+                if (_countdownController.isCompleted!) {
+                  _countdownController.restart();
+                } else {
+                  Fluttertoast.showToast(
+                    msg: "لطفا تا انقضای کد ارسال شده قبلی صبر کنید.",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.CENTER,
+                    timeInSecForIosWeb: 1,
+                    backgroundColor: primaryColor,
+                    textColor: Colors.white,
+                    fontSize: 16.0,
+                  );
+                }
+              },
+              child: Text(
+                'ارسال مجدد کد',
+                style: TextStyle(
+                  fontFamily: 'Shabnam',
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14,
+                  color: grey700Color,
+                ),
               ),
             ),
           ],
         ),
         Spacer(),
-        ElevatedButton(
+        PrimaryButton(
+          text: 'تایید ثبت نام',
+          fixedSize: MaterialStateProperty.all(Size(343, 40)),
           onPressed: () {
             Navigator.of(context).pop();
             Navigator.of(context).pop();
@@ -237,24 +286,6 @@ class OTPScreen extends StatelessWidget {
               ),
             );
           },
-          child: Text(
-            'تایید ثبت نام',
-            style: TextStyle(
-              fontFamily: 'Shabnam',
-              fontWeight: FontWeight.w500,
-              fontSize: 16,
-            ),
-          ),
-          style: ButtonStyle(
-            fixedSize: MaterialStateProperty.all(Size(343, 40)),
-            elevation: MaterialStateProperty.all(0),
-            backgroundColor: MaterialStateProperty.all(primaryColor),
-            shape: MaterialStateProperty.all(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(4),
-              ),
-            ),
-          ),
         ),
         SizedBox(height: 32),
       ],

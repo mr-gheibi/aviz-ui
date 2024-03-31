@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:aviz/data/constants/colors.dart';
 import 'package:aviz/data/models/Aviz.dart';
+import 'package:aviz/widgets/primary_button.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -34,18 +35,17 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     aviz = widget.aviz;
   }
 
   final controller = MapController(
-    location: const LatLng(35.68, 51.41),
+    location: const LatLng(Angle.degree(35.68), Angle.degree(51.41)),
     zoom: 6,
   );
 
   void _gotoDefault() {
-    controller.center = const LatLng(35.68, 51.41);
+    controller.center = const LatLng(Angle.degree(35.68), Angle.degree(51.41));
     controller.zoom = 14;
     setState(() {});
   }
@@ -99,6 +99,8 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
     }
   }
 
+  bool isArchived = false;
+
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -115,7 +117,9 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
           ),
           leading: IconButton(
             icon: ImageIcon(AssetImage('assets/images/arrow-right.png')),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
           ),
           actions: [
             IconButton(
@@ -127,10 +131,17 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
               onPressed: () {},
             ),
             IconButton(
-              icon: ImageIcon(AssetImage('assets/images/archive.png')),
-              onPressed: () {},
+              icon: ImageIcon(
+                isArchived ? AssetImage('assets/images/archive-selected.png') : AssetImage('assets/images/archive.png')
+              ),
+              onPressed: () {
+                setState(() {
+                  isArchived = !isArchived;
+                });
+              },
             ),
           ],
+          scrolledUnderElevation: 0,
         ),
         body: SafeArea(
           child: CustomScrollView(
@@ -277,64 +288,17 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          ElevatedButton(
+                          PrimaryButton(
+                            text: 'گفتگو',
+                            leading: Image.asset('assets/images/message.png'),
+                            fixedSize: MaterialStateProperty.all(Size(178, 40)),
                             onPressed: () {},
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.asset('assets/images/message.png'),
-                                SizedBox(width: 12),
-                                Text(
-                                  'گفتگو',
-                                  style: TextStyle(
-                                    fontFamily: 'Shabnam',
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 16,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            style: ButtonStyle(
-                              fixedSize:
-                                  MaterialStateProperty.all(Size(159, 40)),
-                              elevation: MaterialStateProperty.all(0),
-                              backgroundColor:
-                                  MaterialStateProperty.all(primaryColor),
-                              shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(4),
-                                ),
-                              ),
-                            ),
                           ),
-                          ElevatedButton(
+                          PrimaryButton(
+                            text: 'اطلاعات تماس',
+                            leading: Image.asset('assets/images/call.png'),
+                            fixedSize: MaterialStateProperty.all(Size(178, 40)),
                             onPressed: () {},
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Image.asset('assets/images/call.png'),
-                                Text(
-                                  'اطلاعات تماس',
-                                  style: TextStyle(
-                                    fontFamily: 'Shabnam',
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 16,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            style: ButtonStyle(
-                              fixedSize:
-                                  MaterialStateProperty.all(Size(159, 40)),
-                              elevation: MaterialStateProperty.all(0),
-                              backgroundColor:
-                                  MaterialStateProperty.all(primaryColor),
-                              shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(4),
-                                ),
-                              ),
-                            ),
                           ),
                         ],
                       ),
@@ -890,7 +854,7 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
               ),
             ),
             Container(
-              width: 185,
+              width: 187,
               height: 40,
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               decoration: BoxDecoration(

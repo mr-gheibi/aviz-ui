@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:aviz/screens/add_aviz/add_aviz_last_form_screen.dart';
+import 'package:aviz/widgets/switch_box.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -12,24 +12,28 @@ import '../../utils/map/tile_servers.dart';
 import '../../utils/map/utils.dart';
 import '../../utils/map/viewport_painter.dart';
 
-class AddAvizMapScreen extends StatefulWidget {
-  const AddAvizMapScreen({super.key});
+class LocationPage extends StatefulWidget {
+  final void Function() onFinish;
+
+  const LocationPage({
+    super.key,
+    required this.onFinish,
+  });
 
   @override
-  State<AddAvizMapScreen> createState() => _AddAvizMapScreenState();
+  State<LocationPage> createState() => _LocationPageState();
 }
 
-class _AddAvizMapScreenState extends State<AddAvizMapScreen> {
-  int step = 4;
+class _LocationPageState extends State<LocationPage> {
   bool showExactLocationSwitch = true;
 
   final controller = MapController(
-    location: const LatLng(35.68, 51.41),
+    location: const LatLng(Angle.degree(35.68), Angle.degree(51.41)),
     zoom: 6,
   );
 
   void _gotoDefault() {
-    controller.center = const LatLng(35.68, 51.41);
+    controller.center = const LatLng(Angle.degree(35.68), Angle.degree(51.41));
     controller.zoom = 14;
     setState(() {});
   }
@@ -86,53 +90,17 @@ class _AddAvizMapScreenState extends State<AddAvizMapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: _gotoDefault,
-        tooltip: 'My Location',
-        child: const Icon(Icons.my_location),
-      ),
-      appBar: AppBar(
-        title: Row(
-          textDirection: TextDirection.rtl,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'دسته بندی',
-              style: TextStyle(
-                fontFamily: 'Shabnam',
-                fontWeight: FontWeight.w500,
-                fontSize: 16,
-                color: primaryColor,
-              ),
-            ),
-            Image(image: AssetImage('assets/images/appbar-logo2.png')),
-          ],
+      floatingActionButton: Padding(
+        padding: EdgeInsets.only(bottom: 100),
+        child: FloatingActionButton(
+          onPressed: _gotoDefault,
+          tooltip: 'My Location',
+          child: const Icon(Icons.my_location),
         ),
-        centerTitle: true,
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        actionsIconTheme: IconThemeData(color: Colors.black),
-        actions: [
-          IconButton(
-            icon: ImageIcon(AssetImage('assets/images/arrow-right.png')),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-        ],
-        leading: IconButton(icon: Icon(Icons.close), onPressed: () {}),
-        iconTheme: IconThemeData(color: Colors.black),
       ),
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
-            SliverToBoxAdapter(
-              child: Divider(
-                color: primaryColor,
-                thickness: 4,
-                indent: 350 - ((step - 1) * 50),
-              ),
-            ),
             SliverPadding(
               padding: EdgeInsets.all(16),
               sliver: SliverToBoxAdapter(
@@ -231,50 +199,26 @@ class _AddAvizMapScreenState extends State<AddAvizMapScreen> {
                       ),
                     ),
                     SizedBox(height: 32),
-                    Container(
-                      margin: EdgeInsets.only(bottom: 16),
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                      decoration: BoxDecoration(
-                          border: Border.all(color: grey300Color)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        textDirection: TextDirection.rtl,
-                        children: [
-                          Text(
-                            'موقعیت دقیق نقشه نمایش داده شود؟',
-                            textAlign: TextAlign.end,
-                            style: TextStyle(
-                              fontFamily: 'Shabnam',
-                              fontWeight: FontWeight.w400,
-                              fontSize: 16,
-                              color: grey700Color,
-                            ),
-                          ),
-                          Switch(
-                            value: showExactLocationSwitch,
-                            onChanged: (value) {
-                              setState(() {
-                                showExactLocationSwitch = value;
-                              });
-                            },
-                            activeColor: primaryColor,
-                          )
-                        ],
-                      ),
+                    SwitchBox(
+                      data: 'موقعیت دقیق نقشه نمایش داده شود؟',
+                      value: showExactLocationSwitch,
+                      onChanged: (value) {
+                        setState(() {
+                          showExactLocationSwitch = value;
+                        });
+                      },
                     ),
                     // Spacer(),
                     SizedBox(height: 250),
                     ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => AddAvizLastFormScreen()));
-                      },
+                      onPressed: widget.onFinish,
                       child: Text(
                         'بعدی',
                         style: TextStyle(
                           fontFamily: 'Shabnam',
                           fontWeight: FontWeight.w500,
                           fontSize: 16,
+                          color: Colors.white,
                         ),
                       ),
                       style: ButtonStyle(

@@ -1,4 +1,5 @@
 import 'package:aviz/screens/otp_screen.dart';
+import 'package:aviz/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 import '../data/constants/colors.dart';
 
@@ -121,7 +122,10 @@ class AuthScreen extends StatelessWidget {
           ),
         ),
         Spacer(),
-        ElevatedButton(
+        PrimaryButton(
+          text: 'مرحله بعد',
+          fixedSize: MaterialStateProperty.all(Size(343, 40)),
+          trailing: Image(image: AssetImage('assets/images/arrow-left.png')),
           onPressed: () {
             Navigator.of(context).pop();
             Navigator.of(context).push(
@@ -130,32 +134,6 @@ class AuthScreen extends StatelessWidget {
               ),
             );
           },
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            textDirection: TextDirection.rtl,
-            children: [
-              Text(
-                'مرحله بعد',
-                style: TextStyle(
-                  fontFamily: 'Shabnam',
-                  fontWeight: FontWeight.w500,
-                  fontSize: 16,
-                ),
-              ),
-              SizedBox(width: 12),
-              Image(image: AssetImage('assets/images/arrow-left.png'))
-            ],
-          ),
-          style: ButtonStyle(
-            fixedSize: MaterialStateProperty.all(Size(343, 40)),
-            elevation: MaterialStateProperty.all(0),
-            backgroundColor: MaterialStateProperty.all(primaryColor),
-            shape: MaterialStateProperty.all(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(4),
-              ),
-            ),
-          ),
         ),
         SizedBox(height: 16),
         Row(
@@ -264,7 +242,10 @@ class AuthScreen extends StatelessWidget {
               fillColor: Colors.grey[100]),
         ),
         Spacer(),
-        ElevatedButton(
+        PrimaryButton(
+          text: 'مرحله بعد',
+          fixedSize: MaterialStateProperty.all(Size(343, 40)),
+          trailing: Image(image: AssetImage('assets/images/arrow-left.png')),
           onPressed: () {
             Navigator.of(context).pop();
             Navigator.of(context).push(
@@ -273,32 +254,6 @@ class AuthScreen extends StatelessWidget {
               ),
             );
           },
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            textDirection: TextDirection.rtl,
-            children: [
-              Text(
-                'مرحله بعد',
-                style: TextStyle(
-                  fontFamily: 'Shabnam',
-                  fontWeight: FontWeight.w500,
-                  fontSize: 16,
-                ),
-              ),
-              SizedBox(width: 12),
-              Image(image: AssetImage('assets/images/arrow-left.png'))
-            ],
-          ),
-          style: ButtonStyle(
-            fixedSize: MaterialStateProperty.all(Size(343, 40)),
-            elevation: MaterialStateProperty.all(0),
-            backgroundColor: MaterialStateProperty.all(primaryColor),
-            shape: MaterialStateProperty.all(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(4),
-              ),
-            ),
-          ),
         ),
         SizedBox(height: 16),
         Row(

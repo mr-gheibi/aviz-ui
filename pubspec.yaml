@@ -37,10 +37,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   smooth_page_indicator: ^1.1.0
   flutter_otp_text_field: ^1.1.1
-  map: ^1.4.2
-  latlng: ^1.0.0
+  map: ^2.0.2
+  latlng: ^2.0.7
   cached_network_image: ^3.3.0
   dotted_border: ^2.1.0
+  timer_count_down: ^2.2.2
+  fluttertoast: ^8.2.4
 
 dev_dependencies:
   flutter_test:
