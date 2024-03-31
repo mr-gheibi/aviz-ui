@@ -271,6 +271,7 @@ class _InfoPageState extends State<InfoPage> {
               fontColor: grey700Color,
               fontSize: 24,
               iconsColor: primaryColor,
+              max: 9999,
             ),
           ),
         ],
