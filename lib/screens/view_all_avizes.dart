@@ -2,9 +2,7 @@ import 'package:aviz/data/constants/avizes.dart';
 import 'package:aviz/data/constants/colors.dart';
 import 'package:aviz/screens/aviz_single_page_screen.dart';
 import 'package:aviz/utils/numbers/number_extention.dart';
-import 'package:aviz/widgets/vertical_aviz_box.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class ViewAllAvizesScreen extends StatelessWidget {
   final String filter;
