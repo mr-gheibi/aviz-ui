@@ -2,14 +2,34 @@ class Aviz {
   String name;
   String description;
   String photoAddress;
-  String price;
+  int price;
+  int pricePerMeter;
+  int meterage;
+  int rooms;
+  String floors;
+  int buildYear;
+  String location;
+  String sanad;
+  String direction;
+  List<String> features;
+  String moreInfo;
+  String city;
 
-  String? test;
   Aviz({
     required this.name,
     required this.description,
     required this.photoAddress,
     required this.price,
-    this.test,
+    required this.pricePerMeter,
+    required this.meterage,
+    required this.rooms,
+    required this.floors,
+    required this.buildYear,
+    required this.location,
+    required this.sanad,
+    required this.direction,
+    required this.features,
+    required this.moreInfo,
+    required this.city,
   });
 }

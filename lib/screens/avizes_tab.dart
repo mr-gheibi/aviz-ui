@@ -1,6 +1,7 @@
 import 'package:aviz/data/constants/avizes.dart';
 import 'package:aviz/data/constants/colors.dart';
 import 'package:aviz/screens/aviz_single_page_screen.dart';
+import 'package:aviz/utils/numbers/number_extention.dart';
 import 'package:aviz/widgets/horizontal_aviz_box.dart';
 import 'package:aviz/widgets/vertical_aviz_box.dart';
 import 'package:flutter/material.dart';
@@ -85,7 +86,7 @@ class AvizesTab extends StatelessWidget {
               name: all_avizes_list[index].name,
               description: all_avizes_list[index].description,
               photoPath: all_avizes_list[index].photoAddress,
-              price: all_avizes_list[index].price,
+              price: all_avizes_list[index].price.convertToPrice(),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) =>
@@ -106,7 +107,7 @@ class AvizesTab extends StatelessWidget {
             name: all_avizes_list[index].name,
             description: all_avizes_list[index].description,
             photoPath: all_avizes_list[index].photoAddress,
-            price: all_avizes_list[index].price,
+            price: all_avizes_list[index].price.convertToPrice(),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) =>

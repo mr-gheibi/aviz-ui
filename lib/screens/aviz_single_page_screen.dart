@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:aviz/data/constants/colors.dart';
 import 'package:aviz/data/models/Aviz.dart';
+import 'package:aviz/utils/numbers/number_extention.dart';
 import 'package:aviz/widgets/primary_button.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/gestures.dart';
@@ -183,7 +184,7 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                             ),
                           ),
                           Text(
-                            '۱۶ دقیقه پیش در گرگان',
+                            '۱۶ دقیقه پیش در ' + aviz.city,
                             style: TextStyle(
                               fontFamily: 'Shabnam',
                               fontWeight: FontWeight.w400,
@@ -197,7 +198,7 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                       Row(
                         children: [
                           Text(
-                            'آپارتمان ۵۰۰ متری در صیاد شیرازی',
+                            aviz.name,
                             textAlign: TextAlign.end,
                             textDirection: TextDirection.rtl,
                             style: TextStyle(
@@ -330,7 +331,7 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
 
   Widget _getDescriptionSection() {
     return Text(
-      'ویلا ۵۰۰ متری در خیابان صیاد شیرازی ویو عالی وسط جنگل قیمت فوق العاده  گذاشتم فروش فوری  خریدار باشی تخفیف پای معامله میدم.',
+      aviz.moreInfo,
       style: TextStyle(
         fontFamily: 'Shabnam',
         fontWeight: FontWeight.w400,
@@ -387,7 +388,7 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                         ),
                       ),
                       Text(
-                        'تک برگ',
+                        aviz.sanad,
                         style: TextStyle(
                           fontFamily: 'Shabnam',
                           fontWeight: FontWeight.w400,
@@ -421,7 +422,7 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                         ),
                       ),
                       Text(
-                        'شمالی',
+                        aviz.direction,
                         style: TextStyle(
                           fontFamily: 'Shabnam',
                           fontWeight: FontWeight.w400,
@@ -458,30 +459,21 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
         SizedBox(height: 24),
         Container(
           width: double.infinity,
-          height: 392,
+          height: 56 * aviz.features.length.toDouble(),
           decoration: BoxDecoration(
             border: Border.all(color: grey300Color, width: 1),
             borderRadius: BorderRadius.circular(4),
           ),
           child: ListView.builder(
-            itemCount: 7,
+            itemCount: aviz.features.length,
             itemBuilder: (context, index) {
-              var items = [
-                'آسانسور',
-                'پارکینگ',
-                'انباری',
-                'بالکن',
-                'پنت هاوس',
-                'جنس کف سرامیک',
-                'سرویس بهداشتی ایرانی و فرنگی'
-              ];
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     child: Text(
-                      items[index],
+                      aviz.features[index],
                       style: TextStyle(
                         fontFamily: 'Shabnam',
                         fontWeight: FontWeight.w400,
@@ -490,7 +482,7 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                       ),
                     ),
                   ),
-                  index != (items.length - 1)
+                  index != (aviz.features.length - 1)
                       ? Divider(
                           indent: 16,
                           endIndent: 16,
@@ -501,56 +493,6 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                 ],
               );
             },
-            /*children: [
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  child: Text(
-                    'سند',
-                    style: TextStyle(
-                      fontFamily: 'Shabnam',
-                      fontWeight: FontWeight.w400,
-                      fontSize: 16,
-                      color: grey500Color,
-                    ),
-                  ),
-                ),
-              ),
-              Divider(
-                indent: 16,
-                endIndent: 16,
-                thickness: 1,
-                color: grey300Color,
-              ),
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'جهت ساختمان',
-                        style: TextStyle(
-                          fontFamily: 'Shabnam',
-                          fontWeight: FontWeight.w400,
-                          fontSize: 16,
-                          color: grey500Color,
-                        ),
-                      ),
-                      Text(
-                        'شمالی',
-                        style: TextStyle(
-                          fontFamily: 'Shabnam',
-                          fontWeight: FontWeight.w400,
-                          fontSize: 16,
-                          color: grey500Color,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],*/
           ),
         ),
       ],
@@ -583,7 +525,7 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                     ),
                   ),
                   Text(
-                    '۴۶٬۴۶۰٬۰۰۰',
+                    aviz.pricePerMeter.convertToPrice(),
                     style: TextStyle(
                       fontFamily: 'Shabnam',
                       fontWeight: FontWeight.w400,
@@ -617,7 +559,7 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                     ),
                   ),
                   Text(
-                    '۲۳٬۲۳۰٬۰۰۰٬۰۰۰',
+                    aviz.price.convertToPrice(),
                     style: TextStyle(
                       fontFamily: 'Shabnam',
                       fontWeight: FontWeight.w400,
@@ -661,7 +603,7 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                       ),
                     ),
                     Text(
-                      '500',
+                      aviz.meterage.toString(),
                       style: TextStyle(
                         fontFamily: 'Shabnam',
                         fontWeight: FontWeight.w400,
@@ -693,7 +635,7 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                       ),
                     ),
                     Text(
-                      '6',
+                      aviz.rooms.toString(),
                       style: TextStyle(
                         fontFamily: 'Shabnam',
                         fontWeight: FontWeight.w400,
@@ -725,7 +667,7 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                       ),
                     ),
                     Text(
-                      'دوبلکس',
+                      aviz.floors,
                       style: TextStyle(
                         fontFamily: 'Shabnam',
                         fontWeight: FontWeight.w400,
@@ -757,7 +699,7 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                       ),
                     ),
                     Text(
-                      '1402',
+                      aviz.buildYear.toString(),
                       style: TextStyle(
                         fontFamily: 'Shabnam',
                         fontWeight: FontWeight.w400,
@@ -864,13 +806,16 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'گرگان، صیاد شیرا...',
-                    style: TextStyle(
-                      fontFamily: 'Shabnam',
-                      fontWeight: FontWeight.w400,
-                      fontSize: 16,
-                      color: Colors.white,
+                  Expanded(
+                    child: Text(
+                      aviz.location,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontFamily: 'Shabnam',
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                   Image(image: AssetImage('assets/images/location.png'))
