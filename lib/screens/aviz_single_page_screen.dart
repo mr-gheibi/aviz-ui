@@ -672,7 +672,7 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
               height: 144,
               child: FlutterMap(
                 options: MapOptions(
-                  initialCenter: LatLng(aviz.lat, aviz.long), //Gorgan
+                  initialCenter: LatLng(aviz.lat, aviz.long),
                   initialZoom: 9.2,
                 ),
                 children: [

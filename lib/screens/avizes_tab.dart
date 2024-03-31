@@ -1,6 +1,7 @@
 import 'package:aviz/data/constants/avizes.dart';
 import 'package:aviz/data/constants/colors.dart';
 import 'package:aviz/screens/aviz_single_page_screen.dart';
+import 'package:aviz/screens/view_all_avizes.dart';
 import 'package:aviz/utils/numbers/number_extention.dart';
 import 'package:aviz/widgets/horizontal_aviz_box.dart';
 import 'package:aviz/widgets/vertical_aviz_box.dart';
@@ -26,9 +27,9 @@ class AvizesTab extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 16),
           child: CustomScrollView(
             slivers: [
-              _getTitle('آویز های داغ'),
+              _getTitle(context, 'آویز های داغ', 'hot'),
               _getHotAvizes(),
-              _getTitle('آویز های اخیر'),
+              _getTitle(context, 'آویز های اخیر', 'recent'),
               _getRecentAvizes(),
             ],
           ),
@@ -37,7 +38,7 @@ class AvizesTab extends StatelessWidget {
     );
   }
 
-  Widget _getTitle(String title) {
+  Widget _getTitle(BuildContext context, String title, String type) {
     return SliverToBoxAdapter(
       child: Column(
         children: [
@@ -55,13 +56,19 @@ class AvizesTab extends StatelessWidget {
                   color: grey700Color,
                 ),
               ),
-              Text(
-                'مشاهده همه',
-                style: TextStyle(
-                  fontFamily: 'Shabnam',
-                  fontWeight: FontWeight.w400,
-                  fontSize: 14,
-                  color: grey500Color,
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => ViewAllAvizesScreen(filter: type)));
+                },
+                child: Text(
+                  'مشاهده همه',
+                  style: TextStyle(
+                    fontFamily: 'Shabnam',
+                    fontWeight: FontWeight.w400,
+                    fontSize: 14,
+                    color: grey500Color,
+                  ),
                 ),
               ),
             ],

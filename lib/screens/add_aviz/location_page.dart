@@ -74,7 +74,7 @@ class _LocationPageState extends State<LocationPage> {
                       height: 144,
                       child: FlutterMap(
                         options: MapOptions(
-                          initialCenter: LatLng(36.821074, 54.435764), //Gorgan
+                          initialCenter: LatLng(36.821074, 54.435764),
                           initialZoom: 9.2,
                         ),
                         children: [

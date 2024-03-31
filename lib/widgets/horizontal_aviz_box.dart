@@ -69,7 +69,7 @@ class HorizontalAvizBox extends StatelessWidget {
                     Expanded(
                       child: Text(
                         this.name,
-                        textAlign: TextAlign.end,
+                        textAlign: TextAlign.start,
                         overflow: TextOverflow.ellipsis,
                         textDirection: TextDirection.rtl,
                         style: TextStyle(

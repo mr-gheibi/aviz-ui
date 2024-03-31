@@ -73,7 +73,9 @@ class VerticalAvizBox extends StatelessWidget {
               children: [
                 Text(
                   this.name,
-                  textAlign: TextAlign.end,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.start,
+                  textDirection: TextDirection.rtl,
                   style: TextStyle(
                     fontFamily: 'Shabnam',
                     fontWeight: FontWeight.w700,
