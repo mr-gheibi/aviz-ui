@@ -1,4 +1,5 @@
 import 'package:aviz/data/constants/colors.dart';
+import 'package:aviz/data/constants/theme.dart';
 import 'package:flutter/material.dart';
 
 class PrimaryButton extends StatelessWidget {
@@ -34,9 +35,8 @@ class PrimaryButton extends StatelessWidget {
           Text(
             this.text,
             style: TextStyle(
-              fontFamily: 'Shabnam',
-              fontWeight: FontWeight.w500,
-              fontSize: 16,
+              fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
+              fontSize: mainTheme().textTheme.titleMedium!.fontSize,
               color: Colors.white,
             ),
           ),

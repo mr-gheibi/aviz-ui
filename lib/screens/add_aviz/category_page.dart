@@ -1,4 +1,5 @@
 import 'package:aviz/data/constants/colors.dart';
+import 'package:aviz/data/constants/theme.dart';
 import 'package:flutter/material.dart';
 
 class CategoryPage extends StatefulWidget {
@@ -65,8 +66,7 @@ class _CategoryPageState extends State<CategoryPage> {
                       _getListItems()[index],
                       textAlign: TextAlign.end,
                       style: TextStyle(
-                        fontFamily: 'Shabnam',
-                        fontWeight: FontWeight.w400,
+                        fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
                         fontSize: 16,
                         color: grey700Color,
                       ),

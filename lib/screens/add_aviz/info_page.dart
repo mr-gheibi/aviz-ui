@@ -1,4 +1,5 @@
 import 'package:aviz/data/constants/colors.dart';
+import 'package:aviz/data/constants/theme.dart';
 import 'package:aviz/widgets/number_text_field.dart';
 import 'package:aviz/widgets/switch_box.dart';
 import 'package:flutter/material.dart';
@@ -52,12 +53,7 @@ class _InfoPageState extends State<InfoPage> {
                         children: [
                           Text(
                             'دسته بندی',
-                            style: TextStyle(
-                              fontFamily: 'Shabnam',
-                              fontWeight: FontWeight.w400,
-                              fontSize: 14,
-                              color: grey500Color,
-                            ),
+                            style: mainTheme().textTheme.titleSmall,
                           ),
                           SizedBox(height: 16),
                           DropdownMenu(
@@ -67,8 +63,7 @@ class _InfoPageState extends State<InfoPage> {
                             // leadingIcon: ImageIcon(AssetImage(
                             //     'assets/images/arrow-down.png')),
                             textStyle: TextStyle(
-                              fontFamily: 'Shabnam',
-                              fontWeight: FontWeight.w400,
+                              fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
                               fontSize: 16,
                               color: grey700Color,
                             ),
@@ -80,8 +75,7 @@ class _InfoPageState extends State<InfoPage> {
                                     style: ButtonStyle(
                                       textStyle: MaterialStateProperty.all(
                                         TextStyle(
-                                          fontFamily: 'Shabnam',
-                                          fontWeight: FontWeight.w400,
+                                          fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
                                           fontSize: 16,
                                           color: grey700Color,
                                         ),
@@ -100,12 +94,7 @@ class _InfoPageState extends State<InfoPage> {
                         children: [
                           Text(
                             'محدوده ملک',
-                            style: TextStyle(
-                              fontFamily: 'Shabnam',
-                              fontWeight: FontWeight.w400,
-                              fontSize: 14,
-                              color: grey500Color,
-                            ),
+                            style: mainTheme().textTheme.titleSmall,
                           ),
                           SizedBox(height: 16),
                           TextField(
@@ -115,12 +104,7 @@ class _InfoPageState extends State<InfoPage> {
                             decoration: InputDecoration(
                               hintText: 'خیابان صیاد شیرازی',
                               hintTextDirection: TextDirection.rtl,
-                              hintStyle: TextStyle(
-                                fontFamily: 'Shabnam',
-                                fontWeight: FontWeight.w500,
-                                fontSize: 16,
-                                color: grey400Color,
-                              ),
+                              hintStyle: mainTheme().textTheme.titleMedium,
                               enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(4),
                                 borderSide: BorderSide(
@@ -202,9 +186,8 @@ class _InfoPageState extends State<InfoPage> {
                   child: Text(
                     'بعدی',
                     style: TextStyle(
-                      fontFamily: 'Shabnam',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 16,
+                      fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
+                      fontSize: mainTheme().textTheme.titleMedium!.fontSize,
                       color: Colors.white,
                     ),
                   ),
@@ -237,12 +220,7 @@ class _InfoPageState extends State<InfoPage> {
         Text(
           title,
           textAlign: TextAlign.end,
-          style: TextStyle(
-            fontFamily: 'Shabnam',
-            fontWeight: FontWeight.w700,
-            fontSize: 16,
-            color: grey700Color,
-          ),
+          style: mainTheme().textTheme.titleLarge,
         )
       ],
     );
@@ -255,12 +233,7 @@ class _InfoPageState extends State<InfoPage> {
         children: [
           Text(
             title,
-            style: TextStyle(
-              fontFamily: 'Shabnam',
-              fontWeight: FontWeight.w400,
-              fontSize: 14,
-              color: grey500Color,
-            ),
+            style: mainTheme().textTheme.titleSmall,
           ),
           SizedBox(height: 16),
           Container(

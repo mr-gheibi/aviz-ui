@@ -1,4 +1,5 @@
 import 'package:aviz/data/constants/colors.dart';
+import 'package:aviz/data/constants/theme.dart';
 import 'package:aviz/screens/home_screen.dart';
 import 'package:aviz/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
@@ -48,12 +49,7 @@ class _OTPScreenState extends State<OTPScreen> {
               'تایید شماره موبایل',
               textAlign: TextAlign.start,
               textDirection: TextDirection.rtl,
-              style: TextStyle(
-                fontFamily: 'Shabnam',
-                fontWeight: FontWeight.w700,
-                color: grey700Color,
-                fontSize: 16,
-              ),
+              style: mainTheme().textTheme.titleLarge,
             ),
           ],
         ),
@@ -66,10 +62,9 @@ class _OTPScreenState extends State<OTPScreen> {
               textAlign: TextAlign.start,
               textDirection: TextDirection.rtl,
               style: TextStyle(
-                fontFamily: 'Shabnam',
-                fontWeight: FontWeight.w400,
-                color: grey500Color,
+                fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
                 fontSize: 16,
+                color: mainTheme().textTheme.titleSmall!.color,
               ),
             ),
           ],
@@ -88,9 +83,8 @@ class _OTPScreenState extends State<OTPScreen> {
           fillColor: grey300Color,
           showFieldAsBox: true,
           textStyle: TextStyle(
-            fontFamily: 'Shabnam',
-            fontWeight: FontWeight.w500,
-            fontSize: 16,
+            fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
+            fontSize: mainTheme().textTheme.titleMedium!.fontSize,
             color: grey700Color,
           ),
         ),
@@ -108,8 +102,7 @@ class _OTPScreenState extends State<OTPScreen> {
                 return Text(
                   '$mins:$seconds',
                   style: TextStyle(
-                    fontFamily: 'Shabnam',
-                    fontWeight: FontWeight.w500,
+                    fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
                     fontSize: 18,
                     color: grey700Color,
                   ),
@@ -136,10 +129,9 @@ class _OTPScreenState extends State<OTPScreen> {
               child: Text(
                 'ارسال مجدد کد',
                 style: TextStyle(
-                  fontFamily: 'Shabnam',
-                  fontWeight: FontWeight.w500,
+                  fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
                   fontSize: 14,
-                  color: grey400Color,
+                  color: mainTheme().textTheme.titleMedium!.color,
                 ),
               ),
             ),
@@ -176,12 +168,7 @@ class _OTPScreenState extends State<OTPScreen> {
               'تایید شماره موبایل',
               textAlign: TextAlign.start,
               textDirection: TextDirection.rtl,
-              style: TextStyle(
-                fontFamily: 'Shabnam',
-                fontWeight: FontWeight.w700,
-                color: grey700Color,
-                fontSize: 16,
-              ),
+              style: mainTheme().textTheme.titleLarge,
             ),
           ],
         ),
@@ -194,10 +181,9 @@ class _OTPScreenState extends State<OTPScreen> {
               textAlign: TextAlign.start,
               textDirection: TextDirection.rtl,
               style: TextStyle(
-                fontFamily: 'Shabnam',
-                fontWeight: FontWeight.w400,
-                color: grey500Color,
+                fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
                 fontSize: 16,
+                color: mainTheme().textTheme.titleSmall!.color,
               ),
             ),
           ],
@@ -216,9 +202,8 @@ class _OTPScreenState extends State<OTPScreen> {
           fillColor: grey300Color,
           showFieldAsBox: true,
           textStyle: TextStyle(
-            fontFamily: 'Shabnam',
-            fontWeight: FontWeight.w500,
-            fontSize: 16,
+            fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
+            fontSize: mainTheme().textTheme.titleMedium!.fontSize,
             color: grey700Color,
           ),
         ),
@@ -236,10 +221,9 @@ class _OTPScreenState extends State<OTPScreen> {
                 return Text(
                   '$mins:$seconds',
                   style: TextStyle(
-                    fontFamily: 'Shabnam',
-                    fontWeight: FontWeight.w500,
+                    fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
                     fontSize: 18,
-                    color: grey400Color,
+                    color: mainTheme().textTheme.titleMedium!.color,
                   ),
                 );
               },
@@ -264,8 +248,7 @@ class _OTPScreenState extends State<OTPScreen> {
               child: Text(
                 'ارسال مجدد کد',
                 style: TextStyle(
-                  fontFamily: 'Shabnam',
-                  fontWeight: FontWeight.w500,
+                  fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
                   fontSize: 14,
                   color: grey700Color,
                 ),

@@ -1,3 +1,4 @@
+import 'package:aviz/data/constants/theme.dart';
 import 'package:aviz/widgets/switch_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -48,12 +49,7 @@ class _LocationPageState extends State<LocationPage> {
                         Text(
                           'موقعیت مکانی',
                           textAlign: TextAlign.end,
-                          style: TextStyle(
-                            fontFamily: 'Shabnam',
-                            fontWeight: FontWeight.w700,
-                            fontSize: 16,
-                            color: grey700Color,
-                          ),
+                          style: mainTheme().textTheme.titleLarge,
                         )
                       ],
                     ),
@@ -62,12 +58,7 @@ class _LocationPageState extends State<LocationPage> {
                       'بعد انتخاب محل دقیق روی نقشه میتوانید نمایش آن را فعال یا غیر فعال کید تا حریم خصوصی شما خفظ شود.',
                       textAlign: TextAlign.start,
                       textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        fontFamily: 'Shabnam',
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14,
-                        color: grey500Color,
-                      ),
+                      style: mainTheme().textTheme.titleSmall,
                     ),
                     SizedBox(height: 32),
                     Container(
@@ -103,9 +94,8 @@ class _LocationPageState extends State<LocationPage> {
                       child: Text(
                         'بعدی',
                         style: TextStyle(
-                          fontFamily: 'Shabnam',
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16,
+                          fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
+                          fontSize: mainTheme().textTheme.titleMedium!.fontSize,
                           color: Colors.white,
                         ),
                       ),

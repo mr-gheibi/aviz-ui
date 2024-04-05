@@ -1,4 +1,5 @@
 import 'package:aviz/data/constants/colors.dart';
+import 'package:aviz/data/constants/theme.dart';
 import 'package:flutter/material.dart';
 
 class MyAvizScreen extends StatelessWidget {
@@ -38,12 +39,7 @@ class MyAvizScreen extends StatelessWidget {
                         ),
                         hintTextDirection: TextDirection.rtl,
                         hintText: 'جستجو...',
-                        hintStyle: TextStyle(
-                          fontFamily: 'Shabnam',
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16,
-                          color: grey400Color,
-                        ),
+                        hintStyle: mainTheme().textTheme.titleMedium,
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(4),
                           borderSide: BorderSide(
@@ -68,12 +64,7 @@ class MyAvizScreen extends StatelessWidget {
                         Text(
                           'حساب کاربری',
                           textAlign: TextAlign.end,
-                          style: TextStyle(
-                            fontFamily: 'Shabnam',
-                            fontWeight: FontWeight.w700,
-                            fontSize: 16,
-                            color: grey700Color,
-                          ),
+                          style: mainTheme().textTheme.titleLarge,
                         ),
                       ],
                     ),
@@ -99,9 +90,8 @@ class MyAvizScreen extends StatelessWidget {
                               Text(
                                 'سید محمد جواد هاشمی',
                                 style: TextStyle(
-                                  fontFamily: 'Shabnam',
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 14,
+                                  fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
+                                  fontSize: mainTheme().textTheme.titleSmall!.fontSize,
                                   color: grey700Color,
                                 ),
                               ),
@@ -112,9 +102,8 @@ class MyAvizScreen extends StatelessWidget {
                                   Text(
                                     '۰۹۱۱۷۵۴۰۱۴۵',
                                     style: TextStyle(
-                                      fontFamily: 'Shabnam',
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 14,
+                                      fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
+                                      fontSize: mainTheme().textTheme.titleSmall!.fontSize,
                                       color: grey700Color,
                                     ),
                                   ),
@@ -129,8 +118,7 @@ class MyAvizScreen extends StatelessWidget {
                                     child: Text(
                                       'تایید شده',
                                       style: TextStyle(
-                                        fontFamily: 'Shabnam',
-                                        fontWeight: FontWeight.w500,
+                                        fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
                                         fontSize: 12,
                                         color: Colors.white,
                                       ),
@@ -194,9 +182,8 @@ class MyAvizScreen extends StatelessWidget {
                                     items[index][0],
                                     textAlign: TextAlign.end,
                                     style: TextStyle(
-                                      fontFamily: 'Shabnam',
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 16,
+                                      fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
+                                      fontSize: mainTheme().textTheme.titleMedium!.fontSize,
                                       color: grey700Color,
                                     ),
                                   ),
@@ -227,18 +214,16 @@ class MyAvizScreen extends StatelessWidget {
                         Text(
                           'نسخه',
                           style: TextStyle(
-                            fontFamily: 'Shabnam',
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
+                            fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
+                            fontSize: mainTheme().textTheme.titleSmall!.fontSize,
                             color: grey400Color,
                           ),
                         ),
                         Text(
                           '1.5.9',
                           style: TextStyle(
-                            fontFamily: 'Shabnam',
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
+                            fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
+                            fontSize: mainTheme().textTheme.titleSmall!.fontSize,
                             color: grey400Color,
                           ),
                         )

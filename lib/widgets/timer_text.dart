@@ -1,4 +1,5 @@
 import 'package:aviz/data/constants/colors.dart';
+import 'package:aviz/data/constants/theme.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -24,8 +25,7 @@ class _TimerTextState extends State<TimerText> {
     return Text(
       widget.seconds.toString(),
       style: TextStyle(
-        fontFamily: 'Shabnam',
-        fontWeight: FontWeight.w500,
+        fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
         fontSize: 18,
         color: grey700Color,
       ),

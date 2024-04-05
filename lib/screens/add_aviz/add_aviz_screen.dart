@@ -1,4 +1,5 @@
 import 'package:aviz/data/constants/colors.dart';
+import 'package:aviz/data/constants/theme.dart';
 import 'package:aviz/screens/add_aviz/category_page.dart';
 import 'package:aviz/screens/add_aviz/info_page.dart';
 import 'package:aviz/screens/add_aviz/last_info_page.dart';
@@ -47,9 +48,8 @@ class _AddAvizScreenState extends State<AddAvizScreen> {
               Text(
                 step < 2 ? 'دسته بندی' : 'ثبت',
                 style: TextStyle(
-                  fontFamily: 'Shabnam',
-                  fontWeight: FontWeight.w500,
-                  fontSize: 16,
+                  fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
+                  fontSize: mainTheme().textTheme.titleMedium!.fontSize,
                   color: primaryColor,
                 ),
               ),
@@ -168,10 +168,9 @@ class _AddAvizScreenState extends State<AddAvizScreen> {
         'آگهی شما ثبت شد.',
         textDirection: TextDirection.rtl,
         style: TextStyle(
-          fontFamily: 'Shabnam',
-          fontWeight: FontWeight.w700,
+          fontWeight: mainTheme().textTheme.titleLarge!.fontWeight,
           fontSize: 40,
-          color: grey700Color,
+          color: mainTheme().textTheme.titleLarge!.color,
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:aviz/data/constants/colors.dart';
+import 'package:aviz/data/constants/theme.dart';
 import 'package:flutter/material.dart';
 
 class VerticalAvizBox extends StatelessWidget {
@@ -77,10 +78,9 @@ class VerticalAvizBox extends StatelessWidget {
                   textAlign: TextAlign.start,
                   textDirection: TextDirection.rtl,
                   style: TextStyle(
-                    fontFamily: 'Shabnam',
-                    fontWeight: FontWeight.w700,
+                    fontWeight: mainTheme().textTheme.titleLarge!.fontWeight,
                     fontSize: 14,
-                    color: grey700Color,
+                    color: mainTheme().textTheme.titleLarge!.color,
                   ),
                 ),
               ],
@@ -94,10 +94,9 @@ class VerticalAvizBox extends StatelessWidget {
                     this.description,
                     textAlign: TextAlign.end,
                     style: TextStyle(
-                      fontFamily: 'Shabnam',
-                      fontWeight: FontWeight.w400,
+                      fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
                       fontSize: 12,
-                      color: grey500Color,
+                      color: mainTheme().textTheme.titleSmall!.color,
                     ),
                   ),
                 )
@@ -113,8 +112,7 @@ class VerticalAvizBox extends StatelessWidget {
                   textAlign: TextAlign.end,
                   textDirection: TextDirection.rtl,
                   style: TextStyle(
-                    fontFamily: 'Shabnam',
-                    fontWeight: FontWeight.w500,
+                    fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
                     fontSize: 12,
                     color: grey700Color,
                   ),
@@ -124,8 +122,7 @@ class VerticalAvizBox extends StatelessWidget {
                   child: Text(
                     this.price,
                     style: TextStyle(
-                      fontFamily: 'Shabnam',
-                      fontWeight: FontWeight.w500,
+                      fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
                       fontSize: 12,
                       color: primaryColor,
                     ),

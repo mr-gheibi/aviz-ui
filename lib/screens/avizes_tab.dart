@@ -1,5 +1,6 @@
 import 'package:aviz/data/constants/avizes.dart';
 import 'package:aviz/data/constants/colors.dart';
+import 'package:aviz/data/constants/theme.dart';
 import 'package:aviz/screens/aviz_single_page_screen.dart';
 import 'package:aviz/screens/view_all_avizes.dart';
 import 'package:aviz/utils/numbers/number_extention.dart';
@@ -49,12 +50,7 @@ class AvizesTab extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: TextStyle(
-                  fontFamily: 'Shabnam',
-                  fontWeight: FontWeight.w700,
-                  fontSize: 16,
-                  color: grey700Color,
-                ),
+                style: mainTheme().textTheme.titleLarge,
               ),
               TextButton(
                 onPressed: () {
@@ -63,12 +59,7 @@ class AvizesTab extends StatelessWidget {
                 },
                 child: Text(
                   'مشاهده همه',
-                  style: TextStyle(
-                    fontFamily: 'Shabnam',
-                    fontWeight: FontWeight.w400,
-                    fontSize: 14,
-                    color: grey500Color,
-                  ),
+                  style: mainTheme().textTheme.titleSmall,
                 ),
               ),
             ],

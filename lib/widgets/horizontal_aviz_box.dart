@@ -1,4 +1,5 @@
 import 'package:aviz/data/constants/colors.dart';
+import 'package:aviz/data/constants/theme.dart';
 import 'package:flutter/material.dart';
 
 class HorizontalAvizBox extends StatelessWidget {
@@ -73,10 +74,9 @@ class HorizontalAvizBox extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         textDirection: TextDirection.rtl,
                         style: TextStyle(
-                          fontFamily: 'Shabnam',
-                          fontWeight: FontWeight.w700,
+                          fontWeight: mainTheme().textTheme.titleLarge!.fontWeight,
                           fontSize: 14,
-                          color: grey700Color,
+                          color: mainTheme().textTheme.titleLarge!.color,
                         ),
                       ),
                     ),
@@ -85,10 +85,9 @@ class HorizontalAvizBox extends StatelessWidget {
                       this.description,
                       textAlign: TextAlign.end,
                       style: TextStyle(
-                        fontFamily: 'Shabnam',
-                        fontWeight: FontWeight.w400,
+                        fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
                         fontSize: 12,
-                        color: grey500Color,
+                        color: mainTheme().textTheme.titleSmall!.color,
                       ),
                     ),
                     SizedBox(height: 16),
@@ -102,8 +101,7 @@ class HorizontalAvizBox extends StatelessWidget {
                             textAlign: TextAlign.end,
                             textDirection: TextDirection.rtl,
                             style: TextStyle(
-                              fontFamily: 'Shabnam',
-                              fontWeight: FontWeight.w500,
+                              fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
                               fontSize: 12,
                               color: grey700Color,
                             ),
@@ -113,8 +111,7 @@ class HorizontalAvizBox extends StatelessWidget {
                             child: Text(
                               this.price,
                               style: TextStyle(
-                                fontFamily: 'Shabnam',
-                                fontWeight: FontWeight.w500,
+                                fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
                                 fontSize: 12,
                                 color: primaryColor,
                               ),

@@ -1,3 +1,4 @@
+import 'package:aviz/data/constants/theme.dart';
 import 'package:aviz/screens/otp_screen.dart';
 import 'package:aviz/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
@@ -34,12 +35,7 @@ class AuthScreen extends StatelessWidget {
           children: [
             Text(
               " خوش اومدی به",
-              style: TextStyle(
-                fontFamily: 'Shabnam',
-                fontWeight: FontWeight.w700,
-                fontSize: 16,
-                color: grey700Color,
-              ),
+              style: mainTheme().textTheme.titleLarge,
             ),
             Image(image: AssetImage('assets/images/logo.png')),
           ],
@@ -52,12 +48,7 @@ class AuthScreen extends StatelessWidget {
               'این فوق العادست که آویزو برای آگهی هات انتخاب کردی!',
               textAlign: TextAlign.end,
               textDirection: TextDirection.rtl,
-              style: TextStyle(
-                fontFamily: 'Shabnam',
-                fontWeight: FontWeight.w400,
-                fontSize: 14,
-                color: grey500Color,
-              ),
+              style: mainTheme().textTheme.titleSmall,
             ),
           ],
         ),
@@ -69,12 +60,7 @@ class AuthScreen extends StatelessWidget {
           decoration: InputDecoration(
             hintTextDirection: TextDirection.rtl,
             hintText: 'نام و نام خانوادگی',
-            hintStyle: TextStyle(
-              fontFamily: 'Shabnam',
-              fontWeight: FontWeight.w500,
-              fontSize: 16,
-              color: grey400Color,
-            ),
+            hintStyle: mainTheme().textTheme.titleMedium,
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(4),
               borderSide: BorderSide(
@@ -99,12 +85,7 @@ class AuthScreen extends StatelessWidget {
           decoration: InputDecoration(
             hintTextDirection: TextDirection.rtl,
             hintText: 'شماره موبایل',
-            hintStyle: TextStyle(
-              fontFamily: 'Shabnam',
-              fontWeight: FontWeight.w500,
-              fontSize: 16,
-              color: grey400Color,
-            ),
+            hintStyle: mainTheme().textTheme.titleMedium,
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(4),
               borderSide: BorderSide(
@@ -143,8 +124,7 @@ class AuthScreen extends StatelessWidget {
             Text(
               'قبلا ثبت نام کردی؟',
               style: TextStyle(
-                fontFamily: 'Shabnam',
-                fontWeight: FontWeight.w500,
+                fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
                 fontSize: 14,
                 color: grey500Color,
               ),
@@ -161,8 +141,7 @@ class AuthScreen extends StatelessWidget {
               child: Text(
                 'ورود',
                 style: TextStyle(
-                  fontFamily: 'Shabnam',
-                  fontWeight: FontWeight.w500,
+                  fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
                   fontSize: 14,
                   color: primaryColor,
                 ),
@@ -186,11 +165,7 @@ class AuthScreen extends StatelessWidget {
           children: [
             Text(
               " ورود به",
-              style: TextStyle(
-                  fontFamily: 'Shabnam',
-                  fontWeight: FontWeight.w700,
-                  fontSize: 16,
-                  color: grey700Color),
+              style: mainTheme().textTheme.titleLarge,
             ),
             Image(image: AssetImage('assets/images/logo.png')),
           ],
@@ -203,12 +178,7 @@ class AuthScreen extends StatelessWidget {
               'خوشحالیم که مجددا آویز رو برای آگهی انتخاب کردی!',
               textAlign: TextAlign.end,
               textDirection: TextDirection.rtl,
-              style: TextStyle(
-                fontFamily: 'Shabnam',
-                fontWeight: FontWeight.w400,
-                fontSize: 14,
-                color: grey500Color,
-              ),
+              style: mainTheme().textTheme.titleSmall,
             ),
           ],
         ),
@@ -220,12 +190,7 @@ class AuthScreen extends StatelessWidget {
           decoration: InputDecoration(
               hintTextDirection: TextDirection.rtl,
               hintText: 'شماره موبایل',
-              hintStyle: TextStyle(
-                fontFamily: 'Shabnam',
-                fontWeight: FontWeight.w500,
-                fontSize: 16,
-                color: grey400Color,
-              ),
+              hintStyle: mainTheme().textTheme.titleMedium,
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(4),
                 borderSide: BorderSide(
@@ -263,8 +228,7 @@ class AuthScreen extends StatelessWidget {
             Text(
               'تاحالا ثبت نام نکردی؟',
               style: TextStyle(
-                fontFamily: 'Shabnam',
-                fontWeight: FontWeight.w500,
+                fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
                 fontSize: 14,
                 color: grey500Color,
               ),
@@ -281,8 +245,7 @@ class AuthScreen extends StatelessWidget {
               child: Text(
                 'ثبت نام',
                 style: TextStyle(
-                  fontFamily: 'Shabnam',
-                  fontWeight: FontWeight.w500,
+                  fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
                   fontSize: 14,
                   color: primaryColor,
                 ),

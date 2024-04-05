@@ -1,4 +1,5 @@
 import 'package:aviz/data/constants/colors.dart';
+import 'package:aviz/data/constants/theme.dart';
 import 'package:aviz/data/models/Aviz.dart';
 import 'package:aviz/utils/numbers/number_extention.dart';
 import 'package:aviz/widgets/primary_button.dart';
@@ -108,21 +109,15 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                             child: Text(
                               'آپارتمان',
                               style: TextStyle(
-                                fontFamily: 'Shabnam',
-                                fontWeight: FontWeight.w400,
-                                fontSize: 14,
+                                fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
+                                fontSize: mainTheme().textTheme.titleSmall!.fontSize,
                                 color: primaryColor,
                               ),
                             ),
                           ),
                           Text(
                             '۱۶ دقیقه پیش در ' + aviz.city,
-                            style: TextStyle(
-                              fontFamily: 'Shabnam',
-                              fontWeight: FontWeight.w400,
-                              fontSize: 14,
-                              color: grey500Color,
-                            ),
+                            style: mainTheme().textTheme.titleSmall,
                           )
                         ],
                       ),
@@ -133,12 +128,7 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                             aviz.name,
                             textAlign: TextAlign.end,
                             textDirection: TextDirection.rtl,
-                            style: TextStyle(
-                              fontFamily: 'Shabnam',
-                              fontWeight: FontWeight.w700,
-                              fontSize: 16,
-                              color: grey700Color,
-                            ),
+                            style: mainTheme().textTheme.titleLarge,
                           ),
                         ],
                       ),
@@ -157,8 +147,7 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                               'هشدار های قبل از معامله!',
                               textAlign: TextAlign.end,
                               style: TextStyle(
-                                fontFamily: 'Shabnam',
-                                fontWeight: FontWeight.w400,
+                                fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
                                 fontSize: 16,
                                 color: grey700Color,
                               ),
@@ -199,9 +188,8 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                                     child: Text(
                                       sectionsList[index],
                                       style: TextStyle(
-                                        fontFamily: 'Shabnam',
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 14,
+                                        fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
+                                        fontSize: mainTheme().textTheme.titleSmall!.fontSize,
                                         color: selectedSection == index
                                             ? Colors.white
                                             : primaryColor,
@@ -264,12 +252,7 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
   Widget _getDescriptionSection() {
     return Text(
       aviz.moreInfo,
-      style: TextStyle(
-        fontFamily: 'Shabnam',
-        fontWeight: FontWeight.w400,
-        fontSize: 14,
-        color: grey500Color,
-      ),
+      style: mainTheme().textTheme.titleSmall,
     );
   }
 
@@ -285,12 +268,7 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
             Text(
               'ویژگی ها',
               textAlign: TextAlign.end,
-              style: TextStyle(
-                fontFamily: 'Shabnam',
-                fontWeight: FontWeight.w700,
-                fontSize: 16,
-                color: grey700Color,
-              ),
+              style: mainTheme().textTheme.titleLarge,
             )
           ],
         ),
@@ -313,19 +291,17 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                       Text(
                         'سند',
                         style: TextStyle(
-                          fontFamily: 'Shabnam',
-                          fontWeight: FontWeight.w400,
+                          fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
                           fontSize: 16,
-                          color: grey500Color,
+                          color: mainTheme().textTheme.titleSmall!.color,
                         ),
                       ),
                       Text(
                         aviz.sanad,
                         style: TextStyle(
-                          fontFamily: 'Shabnam',
-                          fontWeight: FontWeight.w400,
+                          fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
                           fontSize: 16,
-                          color: grey500Color,
+                          color: mainTheme().textTheme.titleSmall!.color,
                         ),
                       ),
                     ],
@@ -347,19 +323,17 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                       Text(
                         'جهت ساختمان',
                         style: TextStyle(
-                          fontFamily: 'Shabnam',
-                          fontWeight: FontWeight.w400,
+                          fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
                           fontSize: 16,
-                          color: grey500Color,
+                          color: mainTheme().textTheme.titleSmall!.color,
                         ),
                       ),
                       Text(
                         aviz.direction,
                         style: TextStyle(
-                          fontFamily: 'Shabnam',
-                          fontWeight: FontWeight.w400,
+                          fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
                           fontSize: 16,
-                          color: grey500Color,
+                          color: mainTheme().textTheme.titleSmall!.color,
                         ),
                       ),
                     ],
@@ -379,12 +353,7 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
             Text(
               'امکانات',
               textAlign: TextAlign.end,
-              style: TextStyle(
-                fontFamily: 'Shabnam',
-                fontWeight: FontWeight.w700,
-                fontSize: 16,
-                color: grey700Color,
-              ),
+              style: mainTheme().textTheme.titleLarge,
             )
           ],
         ),
@@ -407,10 +376,9 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                     child: Text(
                       aviz.features[index],
                       style: TextStyle(
-                        fontFamily: 'Shabnam',
-                        fontWeight: FontWeight.w400,
+                        fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
                         fontSize: 16,
-                        color: grey500Color,
+                        color: mainTheme().textTheme.titleSmall!.color,
                       ),
                     ),
                   ),
@@ -450,8 +418,7 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                   Text(
                     'قیمت هر متر:',
                     style: TextStyle(
-                      fontFamily: 'Shabnam',
-                      fontWeight: FontWeight.w400,
+                      fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
                       fontSize: 16,
                       color: grey700Color,
                     ),
@@ -459,8 +426,7 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                   Text(
                     aviz.pricePerMeter.convertToPrice(),
                     style: TextStyle(
-                      fontFamily: 'Shabnam',
-                      fontWeight: FontWeight.w400,
+                      fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
                       fontSize: 16,
                       color: grey700Color,
                     ),
@@ -484,8 +450,7 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                   Text(
                     'قیمت کل:',
                     style: TextStyle(
-                      fontFamily: 'Shabnam',
-                      fontWeight: FontWeight.w400,
+                      fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
                       fontSize: 16,
                       color: grey700Color,
                     ),
@@ -493,8 +458,7 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                   Text(
                     aviz.price.convertToPrice(),
                     style: TextStyle(
-                      fontFamily: 'Shabnam',
-                      fontWeight: FontWeight.w400,
+                      fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
                       fontSize: 16,
                       color: grey700Color,
                     ),
@@ -527,19 +491,13 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                   children: [
                     Text(
                       'متراژ',
-                      style: TextStyle(
-                        fontFamily: 'Shabnam',
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14,
-                        color: grey500Color,
-                      ),
+                      style: mainTheme().textTheme.titleSmall,
                     ),
                     Text(
                       aviz.meterage.toString(),
                       style: TextStyle(
-                        fontFamily: 'Shabnam',
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14,
+                        fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
+                        fontSize: mainTheme().textTheme.titleSmall!.fontSize,
                         color: grey700Color,
                       ),
                     ),
@@ -559,19 +517,13 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                   children: [
                     Text(
                       'اتاق',
-                      style: TextStyle(
-                        fontFamily: 'Shabnam',
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14,
-                        color: grey500Color,
-                      ),
+                      style: mainTheme().textTheme.titleSmall,
                     ),
                     Text(
                       aviz.rooms.toString(),
                       style: TextStyle(
-                        fontFamily: 'Shabnam',
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14,
+                        fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
+                        fontSize: mainTheme().textTheme.titleSmall!.fontSize,
                         color: grey700Color,
                       ),
                     ),
@@ -591,19 +543,13 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                   children: [
                     Text(
                       'طبقه',
-                      style: TextStyle(
-                        fontFamily: 'Shabnam',
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14,
-                        color: grey500Color,
-                      ),
+                      style: mainTheme().textTheme.titleSmall,
                     ),
                     Text(
                       aviz.floors,
                       style: TextStyle(
-                        fontFamily: 'Shabnam',
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14,
+                        fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
+                        fontSize: mainTheme().textTheme.titleSmall!.fontSize,
                         color: grey700Color,
                       ),
                     ),
@@ -623,19 +569,13 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                   children: [
                     Text(
                       'ساخت',
-                      style: TextStyle(
-                        fontFamily: 'Shabnam',
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14,
-                        color: grey500Color,
-                      ),
+                      style: mainTheme().textTheme.titleSmall,
                     ),
                     Text(
                       aviz.buildYear.toString(),
                       style: TextStyle(
-                        fontFamily: 'Shabnam',
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14,
+                        fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
+                        fontSize: mainTheme().textTheme.titleSmall!.fontSize,
                         color: grey700Color,
                       ),
                     ),
@@ -655,12 +595,7 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
             Text(
               'موقعیت مکانی',
               textAlign: TextAlign.end,
-              style: TextStyle(
-                fontFamily: 'Shabnam',
-                fontWeight: FontWeight.w700,
-                fontSize: 16,
-                color: grey700Color,
-              ),
+              style: mainTheme().textTheme.titleLarge,
             )
           ],
         ),
@@ -710,8 +645,7 @@ class _AvizSinglePageScreenState extends State<AvizSinglePageScreen> {
                       aviz.location,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        fontFamily: 'Shabnam',
-                        fontWeight: FontWeight.w400,
+                        fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
                         fontSize: 16,
                         color: Colors.white,
                       ),

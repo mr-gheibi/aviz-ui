@@ -1,4 +1,5 @@
 import 'package:aviz/data/constants/colors.dart';
+import 'package:aviz/data/constants/theme.dart';
 import 'package:aviz/screens/avizes_tab.dart';
 import 'package:aviz/screens/my_aviz.dart';
 import 'package:aviz/screens/add_aviz/add_aviz_screen.dart';
@@ -37,13 +38,11 @@ class _HomeScreenState extends State<HomeScreen> {
         selectedItemColor: primaryColor,
         unselectedItemColor: grey400Color,
         selectedLabelStyle: TextStyle(
-          fontFamily: 'Shabnam',
-          fontWeight: FontWeight.w500,
+          fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
           fontSize: 14,
         ),
         unselectedLabelStyle: TextStyle(
-          fontFamily: 'Shabnam',
-          fontWeight: FontWeight.w500,
+          fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
           fontSize: 14,
         ),
         items: bottomNavigationBarItems,

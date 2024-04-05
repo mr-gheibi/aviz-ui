@@ -1,4 +1,5 @@
 import 'package:aviz/data/constants/colors.dart';
+import 'package:aviz/data/constants/theme.dart';
 import 'package:aviz/screens/auth_screen.dart';
 import 'package:aviz/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,9 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        fontFamily: appFontFamily,
+      ),
       home: MainScreen(),
     );
   }
@@ -45,20 +49,12 @@ class MainScreen extends StatelessWidget {
               children: [
                 Text(
                   " اینجا محل",
-                  style: TextStyle(
-                      fontFamily: 'Shabnam',
-                      fontWeight: FontWeight.w700,
-                      fontSize: 16,
-                      color: grey700Color),
+                  style: mainTheme().textTheme.titleLarge,
                 ),
                 Image(image: AssetImage('assets/images/logo.png')),
                 Text(
                   "آگهی شماست ",
-                  style: TextStyle(
-                      fontFamily: 'Shabnam',
-                      fontWeight: FontWeight.w700,
-                      fontSize: 16,
-                      color: grey700Color),
+                  style: mainTheme().textTheme.titleLarge,
                 )
               ],
             ),
@@ -67,12 +63,7 @@ class MainScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 35),
               child: Text(
                 'در آویز ملک خود را برای فروش،اجاره و رهن آگهی کنید و یا اگر دنبال ملک با مشخصات دلخواه خود هستید آویز ها را ببینید',
-                style: TextStyle(
-                  fontFamily: 'Shabnam',
-                  fontWeight: FontWeight.w400,
-                  fontSize: 14,
-                  color: grey500Color,
-                ),
+                style: mainTheme().textTheme.titleSmall,
                 textAlign: TextAlign.center,
               ),
             ),
@@ -114,9 +105,8 @@ class MainScreen extends StatelessWidget {
                   child: Text(
                     'ورود',
                     style: TextStyle(
-                      fontFamily: 'Shabnam',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 16,
+                      fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
+                      fontSize: mainTheme().textTheme.titleMedium!.fontSize,
                       color: primaryColor,
                     ),
                   ),

@@ -1,4 +1,5 @@
 import 'package:aviz/data/constants/colors.dart';
+import 'package:aviz/data/constants/theme.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -42,8 +43,7 @@ class _SwitchBoxState extends State<SwitchBox> {
               widget.data,
               textAlign: TextAlign.end,
               style: TextStyle(
-                fontFamily: 'Shabnam',
-                fontWeight: FontWeight.w400,
+                fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
                 fontSize: 16,
                 color: grey700Color,
               ),

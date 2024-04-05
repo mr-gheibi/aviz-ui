@@ -1,5 +1,6 @@
 import 'package:aviz/data/constants/avizes.dart';
 import 'package:aviz/data/constants/colors.dart';
+import 'package:aviz/data/constants/theme.dart';
 import 'package:aviz/data/models/Aviz.dart';
 import 'package:aviz/screens/aviz_single_page_screen.dart';
 import 'package:aviz/utils/numbers/number_extention.dart';
@@ -59,12 +60,7 @@ class _SearchTabState extends State<SearchTab> {
                         ),
                         hintTextDirection: TextDirection.rtl,
                         hintText: 'جستجو...',
-                        hintStyle: TextStyle(
-                          fontFamily: 'Shabnam',
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16,
-                          color: grey400Color,
-                        ),
+                        hintStyle: mainTheme().textTheme.titleMedium,
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(4),
                           borderSide: BorderSide(
@@ -92,9 +88,8 @@ class _SearchTabState extends State<SearchTab> {
                         'آگهی یافت نشد.',
                         textDirection: TextDirection.rtl,
                         style: TextStyle(
-                          fontFamily: 'Shabnam',
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16,
+                          fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
+                          fontSize: mainTheme().textTheme.titleMedium!.fontSize,
                           color: grey700Color,
                         ),
                       ),
@@ -176,10 +171,9 @@ class _SearchTabState extends State<SearchTab> {
                         textAlign: TextAlign.start,
                         textDirection: TextDirection.rtl,
                         style: TextStyle(
-                          fontFamily: 'Shabnam',
-                          fontWeight: FontWeight.w700,
+                          fontWeight: mainTheme().textTheme.titleLarge!.fontWeight,
                           fontSize: 14,
-                          color: grey700Color,
+                          color: mainTheme().textTheme.titleLarge!.color,
                         ),
                       ),
                     ),
@@ -194,10 +188,9 @@ class _SearchTabState extends State<SearchTab> {
                         filteredAvizes[index].description,
                         textAlign: TextAlign.end,
                         style: TextStyle(
-                          fontFamily: 'Shabnam',
-                          fontWeight: FontWeight.w400,
+                          fontWeight: mainTheme().textTheme.titleSmall!.fontWeight,
                           fontSize: 12,
-                          color: grey500Color,
+                          color: mainTheme().textTheme.titleSmall!.color,
                         ),
                       ),
                     )
@@ -213,8 +206,7 @@ class _SearchTabState extends State<SearchTab> {
                       textAlign: TextAlign.end,
                       textDirection: TextDirection.rtl,
                       style: TextStyle(
-                        fontFamily: 'Shabnam',
-                        fontWeight: FontWeight.w500,
+                        fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
                         fontSize: 12,
                         color: grey700Color,
                       ),
@@ -224,8 +216,7 @@ class _SearchTabState extends State<SearchTab> {
                       child: Text(
                         filteredAvizes[index].price.convertToPrice(),
                         style: TextStyle(
-                          fontFamily: 'Shabnam',
-                          fontWeight: FontWeight.w500,
+                          fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
                           fontSize: 12,
                           color: primaryColor,
                         ),

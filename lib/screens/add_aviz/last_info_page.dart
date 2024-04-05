@@ -1,4 +1,5 @@
 import 'package:aviz/data/constants/colors.dart';
+import 'package:aviz/data/constants/theme.dart';
 import 'package:aviz/widgets/switch_box.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
@@ -37,12 +38,7 @@ class _LastInfoPageState extends State<LastInfoPage> {
                     Text(
                       'تصویر آویز',
                       textAlign: TextAlign.end,
-                      style: TextStyle(
-                        fontFamily: 'Shabnam',
-                        fontWeight: FontWeight.w700,
-                        fontSize: 16,
-                        color: grey700Color,
-                      ),
+                      style: mainTheme().textTheme.titleLarge,
                     )
                   ],
                 ),
@@ -62,12 +58,7 @@ class _LastInfoPageState extends State<LastInfoPage> {
                       children: [
                         Text(
                           'لطفا تصویر آویز خود را بارگذاری کنید',
-                          style: TextStyle(
-                            fontFamily: 'Shabnam',
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
-                            color: grey500Color,
-                          ),
+                          style: mainTheme().textTheme.titleSmall,
                         ),
                         SizedBox(height: 16),
                         ElevatedButton(
@@ -84,9 +75,8 @@ class _LastInfoPageState extends State<LastInfoPage> {
                               Text(
                                 'انتخاب تصویر',
                                 style: TextStyle(
-                                  fontFamily: 'Shabnam',
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 16,
+                                  fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
+                                  fontSize: mainTheme().textTheme.titleMedium!.fontSize,
                                   color: Colors.white,
                                 ),
                               ),
@@ -120,12 +110,7 @@ class _LastInfoPageState extends State<LastInfoPage> {
                     Text(
                       'عنوان آویز',
                       textAlign: TextAlign.end,
-                      style: TextStyle(
-                        fontFamily: 'Shabnam',
-                        fontWeight: FontWeight.w700,
-                        fontSize: 16,
-                        color: grey700Color,
-                      ),
+                      style: mainTheme().textTheme.titleLarge,
                     ),
                   ],
                 ),
@@ -137,12 +122,7 @@ class _LastInfoPageState extends State<LastInfoPage> {
                   decoration: InputDecoration(
                     hintText: 'عنوان آویز را وارد کنید',
                     hintTextDirection: TextDirection.rtl,
-                    hintStyle: TextStyle(
-                      fontFamily: 'Shabnam',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 16,
-                      color: grey400Color,
-                    ),
+                    hintStyle: mainTheme().textTheme.titleMedium,
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(4),
                       borderSide: BorderSide(
@@ -169,12 +149,7 @@ class _LastInfoPageState extends State<LastInfoPage> {
                     Text(
                       'توضیحات',
                       textAlign: TextAlign.end,
-                      style: TextStyle(
-                        fontFamily: 'Shabnam',
-                        fontWeight: FontWeight.w700,
-                        fontSize: 16,
-                        color: grey700Color,
-                      ),
+                      style: mainTheme().textTheme.titleLarge,
                     ),
                   ],
                 ),
@@ -187,12 +162,7 @@ class _LastInfoPageState extends State<LastInfoPage> {
                   decoration: InputDecoration(
                     hintText: 'توضیحات آویز را وارد کنید ...',
                     hintTextDirection: TextDirection.rtl,
-                    hintStyle: TextStyle(
-                      fontFamily: 'Shabnam',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 16,
-                      color: grey400Color,
-                    ),
+                    hintStyle: mainTheme().textTheme.titleMedium,
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(4),
                       borderSide: BorderSide(
@@ -235,9 +205,8 @@ class _LastInfoPageState extends State<LastInfoPage> {
                   child: Text(
                     'ثبت آگهی',
                     style: TextStyle(
-                      fontFamily: 'Shabnam',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 16,
+                      fontWeight: mainTheme().textTheme.titleMedium!.fontWeight,
+                      fontSize: mainTheme().textTheme.titleMedium!.fontSize,
                       color: Colors.white,
                     ),
                   ),
