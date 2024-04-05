@@ -1,5 +1,4 @@
 import 'package:aviz/data/constants/avizes.dart';
-import 'package:aviz/data/constants/colors.dart';
 import 'package:aviz/data/constants/theme.dart';
 import 'package:aviz/screens/aviz_single_page_screen.dart';
 import 'package:aviz/screens/view_all_avizes.dart';
